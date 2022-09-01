@@ -1,0 +1,24 @@
+package com.mygdx.game;
+
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+
+public class EasyCircle {
+    public Fixture fixtureName;
+    public CircleShape shape = new CircleShape();
+    public FixtureDef fixtureDef = new FixtureDef();
+
+    public EasyCircle(float radius, int x, int y, float density, float restitution, Body body) {
+        Vector2 pos = new Vector2(x, y);
+        this.shape.setRadius(radius);
+        this.shape.setPosition(pos);
+        this.fixtureDef.shape = shape;
+        this.fixtureDef.density = density;
+        this.fixtureDef.restitution = restitution;
+        this.fixtureName = body.createFixture(this.fixtureDef);
+        this.fixtureName.setUserData(this);
+    }
+}
