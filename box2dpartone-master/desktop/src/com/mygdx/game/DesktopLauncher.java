@@ -9,7 +9,7 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setMaximized(true);
-		config.setWindowedMode(800,450);
+		config.setWindowedMode(450,975);
 		config.setForegroundFPS(60);
 		config.setTitle("pj");
 		new Lwjgl3Application(new pj(), config);
