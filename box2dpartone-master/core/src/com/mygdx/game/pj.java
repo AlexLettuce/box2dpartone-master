@@ -31,17 +31,19 @@ public class pj extends ApplicationAdapter {
         camera.setToOrtho(true, 160, 90);
         world = new World(new Vector2(0, 0), true);
         batch = new SpriteBatch();
-        player = new Player(camera.viewportWidth/2, camera.viewportHeight/2, 1, 1, 2);
+        player = new Player(0, 0, 1, 1, 2);
     }
     @Override
     public void render() {
         ScreenUtils.clear(0, 0, 0, 0);
         world.step(1 / 60f, 6, 2);
+        camera.position.set(player.body.getPosition(),0);
+        camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         batch.end();
         moveit.move(player); // BADDDDDDDDD
-        Level.Level(1);
+        Level.Level(1,player);
         debugRenderer.render(world, camera.combined);
     }
 

@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 
 public class moveit {
-    public static int playerSpeed = 50;
+    public static int playerSpeed = 100;
     public static void move(Player player) {
         Vector2 direction = new Vector2(0, 0);
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
@@ -22,7 +22,6 @@ public class moveit {
         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             direction.y += playerSpeed;
         }
-        player.body.setLinearVelocity(direction);
     }
 
 }
