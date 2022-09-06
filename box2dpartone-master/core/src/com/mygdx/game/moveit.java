@@ -7,15 +7,20 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 
 public class moveit {
-    public static int playerSpeed = 1200;
+    public static int playerSpeed = 10000;
     public static int playerJump = 50;
     public static void move(Player player) {
         Vector2 direction = new Vector2(0, player.body.getLinearVelocity().y);
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-            direction.x += -playerSpeed;
+            if(direction.x>-500) {
+                direction.x += -playerSpeed;
+            }
+            System.out.println(direction.x);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-            direction.x += playerSpeed;
+            if(direction.x<500) {
+                direction.x += playerSpeed;
+            }
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
 //            direction.y = -playerJump;
@@ -23,8 +28,8 @@ public class moveit {
         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
 //            direction.y += playerSpeed;
         }
-        if(true){}
-        player.body.applyForceToCenter(direction,true);
+            player.body.applyForceToCenter(direction, true);
+
     }
 
 }
