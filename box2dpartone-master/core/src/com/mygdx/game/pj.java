@@ -29,9 +29,9 @@ public class pj extends ApplicationAdapter {
     public void create() {
         debugRenderer = new Box2DDebugRenderer(true, false, false, true, false, false);
         camera.setToOrtho(true, 160, 90);
-        world = new World(new Vector2(0, 0), true);
+        world = new World(new Vector2(0, 100), true);
         batch = new SpriteBatch();
-        player = new Player(0, 0, 1, 1, 2);
+        player = new Player(0, 0, 1, 0.001f, 2);
     }
     @Override
     public void render() {
